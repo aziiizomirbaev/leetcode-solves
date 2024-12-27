@@ -4,6 +4,7 @@ WITH tab AS (
     SELECT player_id, MIN(event_date) FROM Activity GROUP BY player_id
 )
 
+    
 SELECT ROUND(COUNT(DISTINCT t.player_id) * 1.0 / (SELECT * FROM tab), 2) AS fraction
 FROM tab2 AS t 
 INNER JOIN Activity AS a ON a.player_id = t.player_id 
